@@ -1,5 +1,6 @@
 package com.test_mybatis;
 
+//用于映射数据库的表category_
 public class Category {
     private int id;
     private String name;

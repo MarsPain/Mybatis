@@ -1,22 +1,31 @@
+//主配置文件
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+	//自动扫描com.test_mybatis下的类型，使得在后续配置文件Category.xml中使用resultType的时候，直接使用Category,而不必写全com.test_mybatis.Category
     <typeAliases>
       <package name="com.test_mybatis"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
+            
+          	//  作用主要是提供连接数据库用的驱动，数据库url，编码方式，账号密码
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/test_mybatis?characterEncoding=UTF-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="143400"/>
             </dataSource>
+            
         </environment>
     </environments>
+    
+    //映射Category.xml
     <mappers>
         <mapper resource="com/test_mybatis/Category.xml"/>
     </mappers>
